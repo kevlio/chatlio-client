@@ -27,7 +27,11 @@ import {
 
 import { io } from "socket.io-client";
 
-const socket = io(process.env.PORT || "http://localhost:4000");
+if (REACT_APP_BACKEND_URL) {
+  (url = REACT_APP_BACKEND_URL), { transports: ["websockets"] };
+} else url = "http://localhost:4000";
+
+const socket = io(url);
 
 function App() {
   const handleKeyDown = (e) => {
