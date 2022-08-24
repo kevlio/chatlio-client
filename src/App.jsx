@@ -27,8 +27,8 @@ import {
 
 import { io } from "socket.io-client";
 
-if (REACT_APP_BACKEND_URL) {
-  (url = REACT_APP_BACKEND_URL), { transports: ["websockets"] };
+if (process.env.REACT_APP_BACKEND_URL) {
+  (url = process.env.REACT_APP_BACKEND_URL), { transports: ["websockets"] };
 } else url = "http://localhost:4000";
 
 const socket = io(url);
