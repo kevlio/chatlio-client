@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
+    "eslint": "^8.22.0",
+    "eslint-plugin-react": "^7.31.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-emoji-render": "^1.2.4",

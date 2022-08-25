@@ -27,6 +27,7 @@ import {
 
 import { io } from "socket.io-client";
 
+// Why didnt the env.variable work?
 const socket = io("https://chatlio--backend.herokuapp.com/");
 
 function App() {
