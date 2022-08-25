@@ -1,1 +1,1 @@
-release: npx vite build
+web: npx static
