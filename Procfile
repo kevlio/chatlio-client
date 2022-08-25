@@ -1,1 +1,1 @@
-web: npx serve
+release: npx vite build
