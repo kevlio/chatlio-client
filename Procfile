@@ -1,1 +1,1 @@
-web: npx static
+web: npx serve
