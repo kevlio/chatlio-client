@@ -27,10 +27,6 @@ import {
 
 import { io } from "socket.io-client";
 
-// if (process.env.REACT_APP_BACKEND_URL) {
-//   (url = process.env.REACT_APP_BACKEND_URL), { transports: ["websockets"] };
-// } else url = "http://localhost:4000";
-
 const socket = io(process.env.REACT_APP_BACKEND_URL);
 
 function App() {
@@ -72,11 +68,13 @@ function App() {
 
   useEffect(() => {
     socket.on("connection", (data) => {
+      console.log("connected");
       setRooms(data.rooms);
       setUsers(data.users);
     });
 
     socket.on("get_users", (data) => {
+      console.log(data);
       setUsers(data);
       setErrorMessage("");
     });
@@ -142,6 +140,7 @@ function App() {
   };
 
   const handleUser = (username) => {
+    console.log(username);
     const random = Math.floor(Math.random() * 16777215).toString(16);
     setRandomColor(random);
     setAvatar(
