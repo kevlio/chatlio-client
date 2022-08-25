@@ -27,7 +27,7 @@ import {
 
 import { io } from "socket.io-client";
 
-const socket = io(process.env.REACT_APP_BACKEND_URL);
+const socket = io("https://chatlio--backend.herokuapp.com/");
 
 function App() {
   const handleKeyDown = (e) => {
