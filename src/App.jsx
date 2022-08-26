@@ -27,8 +27,7 @@ import {
 
 import { io } from "socket.io-client";
 
-// Why didnt the env.variable work?
-const socket = io("https://chatlio--backend.herokuapp.com/");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 function App() {
   const handleKeyDown = (e) => {
@@ -36,7 +35,7 @@ function App() {
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
-  const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -75,7 +74,6 @@ function App() {
     });
 
     socket.on("get_users", (data) => {
-      console.log(data);
       setUsers(data);
       setErrorMessage("");
     });
@@ -141,7 +139,6 @@ function App() {
   };
 
   const handleUser = (username) => {
-    console.log(username);
     const random = Math.floor(Math.random() * 16777215).toString(16);
     setRandomColor(random);
     setAvatar(
